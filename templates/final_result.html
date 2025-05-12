@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Over!</h1>
+
+        <h2>{{ winner }}</h2>
+        <p>Your Wins: {{ user_wins }}</p>
+        <p>Computer's Wins: {{ computer_wins }}</p>
+
+        <form action="/new_game" method="get">
+            <button type="submit">Start New Game</button>
+        </form>
+    </div>
+</body>
+</html>
