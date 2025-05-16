@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import random
 
 app = Flask(__name__)
-app.secret_key = "supersecret"  # Needed for session management
+app.secret_key = "supersecret"  
 
 choices = ['rock', 'paper', 'scissors']
 emojis = {
@@ -12,7 +12,7 @@ emojis = {
 }
 
 def determine_winner(user, computer):
-    """Determine the winner of the round."""
+   
     if user == computer:
         return "It's a tie!", emojis["tie"]
     elif (user == 'rock' and computer == 'scissors') or \
@@ -28,15 +28,15 @@ def index():
 
 @app.route('/play', methods=['POST'])
 def play():
-    """Handle the game logic when the user makes a choice."""
+   
     if 'rounds' not in session:
-        return redirect(url_for('index'))  # Ensure rounds are selected
+        return redirect(url_for('index')) 
     
     user_choice = request.form['choice']
     computer_choice = random.choice(choices)
     result_text, emoji = determine_winner(user_choice, computer_choice)
     
-    # Track round wins
+  
     if result_text == "You win!":
         session['user_wins'] += 1
     elif result_text == "You lose!":
@@ -44,7 +44,7 @@ def play():
 
     session['current_round'] += 1
 
-    # Check if rounds are complete
+   
     if session['current_round'] > session['rounds']:
         return redirect(url_for('final_result'))
     
@@ -60,22 +60,22 @@ def play():
 
 @app.route('/new_game')
 def new_game():
-    """Reset the session data and start a new game."""
-    session.clear()  # Clears the score and rounds
+    
+    session.clear()  
     return redirect(url_for('index'))
 
 @app.route('/set_rounds', methods=['POST'])
 def set_rounds():
-    """Set the number of rounds for the game."""
-    session['rounds'] = int(request.form['rounds'])  # Set the number of rounds
-    session['current_round'] = 1  # Initialize to the first round
+   
+    session['rounds'] = int(request.form['rounds'])  
+    session['current_round'] = 1  
     session['user_wins'] = 0
     session['computer_wins'] = 0
     return redirect(url_for('index'))
 
 @app.route('/final_result')
 def final_result():
-    """Display the final result after all rounds are complete."""
+    
     user_wins = session['user_wins']
     computer_wins = session['computer_wins']
     
