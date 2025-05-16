@@ -1,4 +1,4 @@
-/* Center the body and make it full height */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-/* Container for game elements */
+
 .container {
     background-color: white;
     display: inline-block;
@@ -21,7 +21,7 @@ body {
     text-align: center;
 }
 
-/* Scoreboard styling */
+
 .scoreboard {
     margin-bottom: 20px;
     font-size: 20px;
@@ -29,7 +29,7 @@ body {
     color: #333;
 }
 
-/* Styling for buttons with hover effect */
+
 button {
     padding: 15px 30px;
     margin: 10px;
@@ -47,13 +47,13 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Emoji reactions animation */
+
 .emoji {
     font-size: 60px;
     animation: pop 0.5s ease-out;
 }
 
-/* Result and outcome text */
+
 .outcome {
     font-size: 22px;
     font-weight: bold;
@@ -62,7 +62,7 @@ button:hover {
     animation: slideDownFade 0.7s ease-out;
 }
 
-/* Slide down + fade effect for result */
+
 @keyframes slideDownFade {
     from {
         opacity: 0;
@@ -74,13 +74,13 @@ button:hover {
     }
 }
 
-/* Fade-in effect for container */
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Button animations */
+
 @keyframes pop {
     0% { transform: scale(0.8); opacity: 0; }
     50% { transform: scale(1.2); opacity: 1; }
